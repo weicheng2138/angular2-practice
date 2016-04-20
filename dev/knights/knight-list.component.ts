@@ -11,7 +11,7 @@ import {Knight} from "./knight";
                 (click)="onSelect(knight)"   
                 [class.clicked]="selectedKnight === knight"
                 style="cursor: pointer"
-            >Knight {{knight.name}} </li>
+            >Knight  {{knight.name}} </li>
         </ul>
         <knight [knight]="selectedKnight"> </knight>
     `,
