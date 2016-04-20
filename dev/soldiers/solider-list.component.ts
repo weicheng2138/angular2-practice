@@ -1,5 +1,7 @@
-import {Component} from "angular2/core";
+import {Component, OnInit} from "angular2/core";
 import {SoldierComponent} from "./soldier.component";
+import {SoldierService} from "./soldier.service";
+import {Soldier} from "./soldier";
 
 @Component({
     selector: "soldier-list",
@@ -18,23 +20,29 @@ import {SoldierComponent} from "./soldier.component";
         <soldier [soldier]="selectedSoldier"> </soldier>
     `,
     directives: [SoldierComponent],
+    providers: [SoldierService],
     styleUrls: ["../src/css/soldier-list.component.css"]
     
 })
-export class SoliderListComponent {
-    public soldiers = [
-        {name: "Jeff", power: 20, health: 100},
-        {name: "John", power: 10, health: 100},
-        {name: "Jason", power: 45, health: 100},
-        {name: "Joe", power: 2, health: 100},
-    ];
-
+export class SoliderListComponent implements OnInit{
+    public changeColor = false;
     public selectedSoldier = {};
+    public soldiers: Soldier[];
+
+    constructor(private _soldierService: SoldierService){}
+
+    ngOnInit():any {
+        this.getSoldiers();
+    }
+
+    getSoldiers() {
+        this._soldierService.getSoldiers().then((soldiers: Soldier[]) => this.soldiers = soldiers);
+    }
+
     onSelect(soldier) {
         this.selectedSoldier= soldier;
     }
 
-    public changeColor = false;
     onH2Select() {
         this.changeColor =true;
     }
