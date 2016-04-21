@@ -6,6 +6,10 @@ import {Knight} from "./knight";
 @Component({
     selector: 'knight-list',
     template: `
+        <h2 (click)="onH2Select()"
+            [class.clicked] ="changeColor === true"
+        >List of Knight
+        </h2>
         <ul>
             <li *ngFor="#knight of knights"
                 (click)="onSelect(knight)"   
@@ -24,12 +28,17 @@ import {Knight} from "./knight";
 export class KnightListComponent implements OnInit{
     public knights: Knight[];
     public selectedKnight = {};
+    public changeColor = false;
+
 
     constructor(private _knightService: KnightService) {}
 
-    
-    
-    
+
+
+    onH2Select() {
+        this.changeColor =true;
+    }
+
     ngOnInit():any {
         this.getKnights();
     }

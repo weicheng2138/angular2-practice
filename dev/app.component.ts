@@ -1,28 +1,51 @@
 import {Component} from 'angular2/core';
 import {KnightListComponent} from "./knights/knight-list.component";
 import {SoliderListComponent} from "./soldiers/solider-list.component";
+import {ROUTER_DIRECTIVES, RouteConfig} from "angular2/router";
+import {NewKnightComponent} from "./knights/new-knight.component";
+import {NewSoldierComponent} from "./soldiers/new-soldier.component";
 
 @Component({
     selector: 'my-app',
     template: `
+        <header>
+            <nav>
+                <a [routerLink]="['Knights']">Knights</a>
+                <a [routerLink]="['NewKnight']">New Knight</a>
+                <a [routerLink]="['Soldiers']">Soldiers</a>
+                <a [routerLink]="['NewSoldier']">NewSoldier</a>
+            </nav>
+        </header>
         <h1 c>Angular 2 Kingdom</h1>
-        <h2 (click)="onSelect()"
-            [class.clicked] ="changeColor === true"
-        >List of Knight
-        </h2>
-        <knight-list></knight-list>
-        <soldier-list></soldier-list>
+        
+        
+        <!--router implementation-->
+        <div class="main">
+            <router-outlet></router-outlet>
+        </div>
+        <!--<knight-list></knight-list>-->
+        <!--<soldier-list></soldier-list>-->
+        
+         <!--ploymer testing-->
+        <paper-input label="Paper input"> </paper-input>
+        <paper-button (click)="onHelloSelect()" >Say Hello</paper-button>
+        <button (click)="onHelloSelect()">Click me!</button>
 
-        
-        
     `,
-    directives: [KnightListComponent, SoliderListComponent],
+    directives: [KnightListComponent, SoliderListComponent, ROUTER_DIRECTIVES],
     styleUrls: ["../src/css/app.css"]
 })
 
+@RouteConfig([
+    {path: '/knights', name: 'Knights', component: KnightListComponent, useAsDefault: true},
+    {path: '/newknight', name: 'NewKnight', component: NewKnightComponent},
+    {path: '/soldiers', name: 'Soldiers', component: SoliderListComponent},
+    {path: '/newsoldier', name: 'NewSoldier', component: NewSoldierComponent}
+])
 export class AppComponent {
-    public changeColor = false;
-    onSelect() {
-        this.changeColor =true;
+    
+    onHelloSelect() {
+        alert("What the fxck <...<");
     }
+    
 }
