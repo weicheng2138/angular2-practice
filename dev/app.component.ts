@@ -26,10 +26,7 @@ import {NewSoldierComponent} from "./soldiers/new-soldier.component";
         <!--<knight-list></knight-list>-->
         <!--<soldier-list></soldier-list>-->
         
-         <!--ploymer testing-->
-        <paper-input label="Paper input"> </paper-input>
-        <paper-button (click)="onHelloSelect()" >Say Hello</paper-button>
-        <button (click)="onHelloSelect()">Click me!</button>
+
 
     `,
     directives: [KnightListComponent, SoliderListComponent, ROUTER_DIRECTIVES],
@@ -44,8 +41,6 @@ import {NewSoldierComponent} from "./soldiers/new-soldier.component";
 ])
 export class AppComponent {
     
-    onHelloSelect() {
-        alert("What the fxck <...<");
-    }
+
     
 }
