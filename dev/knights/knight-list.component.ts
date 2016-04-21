@@ -13,6 +13,8 @@ import {Knight} from "./knight";
                 style="cursor: pointer"
             >Knight  {{knight.name}} </li>
         </ul>
+        
+        
         <knight [knight]="selectedKnight"> </knight>
     `,
     directives: [KnightComponent],

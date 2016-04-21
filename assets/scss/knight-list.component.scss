@@ -1,3 +1,15 @@
 .clicked {
-  color: red;
+  color: #850440;
+  font-weight: bold;
 }
+
+li {
+  cursor: pointer;
+  transition: padding 0.5s;
+}
+
+li:hover {
+  padding-left: 10px;
+  color: #850440;
+}
+

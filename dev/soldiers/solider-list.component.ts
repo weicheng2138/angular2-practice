@@ -9,7 +9,9 @@ import {Soldier} from "./soldier";
         <h2 (click)="onH2Select()"
             [class.clicked] ="changeColor === true"
         >List of Soldier</h2>
-        
+        <p>
+            
+        </p>
         <ul>
             <li *ngFor="#soldier of soldiers"
                 (click)="onSelect(soldier)"   
