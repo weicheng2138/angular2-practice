@@ -5,6 +5,7 @@ import {Router} from "angular2/router";
 
 @Component({
     template: `
+        <h2>Create a Knight here...</h2>
         <div>
             <paper-input label="Name" type="text" id="name" #name> </paper-input>
         </div>
