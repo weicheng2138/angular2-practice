@@ -19,7 +19,19 @@ import {Soldier} from "./soldier";
                 style="cursor: pointer"
             >Soldier {{soldier.name}}  </li>
         </ul>
+        
+        
+        <select [(ngModel)]="optionSelectedSoldier"
+                >
+            <option *ngFor="#soldier of soldiers" [ngValue]="soldier"
+                style="cursor: pointer"
+            >Soldier {{soldier.name}}</option>
+        </select>
+        
+        
+        
         <soldier *ngIf="selectedSoldier !== null" [soldier]="selectedSoldier"> </soldier>
+        <soldier *ngIf="optionSelectedSoldier !== null" [soldier]="optionSelectedSoldier"> </soldier>
     `,
     directives: [SoldierComponent],
     providers: [SoldierService],
@@ -30,6 +42,7 @@ export class SoliderListComponent implements OnInit{
     public changeColor = false;
     public selectedSoldier = null;
     public soldiers: Soldier[];
+    public optionSelectedSoldier = null;
 
     constructor(private _soldierService: SoldierService){}
 
@@ -42,7 +55,12 @@ export class SoliderListComponent implements OnInit{
     }
 
     onSelect(soldier) {
-        this.selectedSoldier= soldier;
+        this.selectedSoldier = soldier;
+        console.log(this.optionSelectedSoldier.name);
+    }
+
+    onOptionSelected(soldier) {
+        this.optionSelectedSoldier = soldier;
     }
 
     onH2Select() {
