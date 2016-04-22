@@ -36,6 +36,9 @@ import {NewSoldierComponent} from "./soldiers/new-soldier.component";
 @RouteConfig([
     {path: '/knights', name: 'Knights', component: KnightListComponent, useAsDefault: true},
     {path: '/newknight', name: 'NewKnight', component: NewKnightComponent},
+    // Old way to pass the value by router
+    // {path: '/newknight/:name', name: 'NewKnightFromKnight', component: NewKnightComponent},
+
     {path: '/soldiers', name: 'Soldiers', component: SoliderListComponent},
     {path: '/newsoldier', name: 'NewSoldier', component: NewSoldierComponent}
 ])

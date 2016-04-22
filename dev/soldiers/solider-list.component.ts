@@ -19,7 +19,7 @@ import {Soldier} from "./soldier";
                 style="cursor: pointer"
             >Soldier {{soldier.name}}  </li>
         </ul>
-        <soldier [soldier]="selectedSoldier"> </soldier>
+        <soldier *ngIf="selectedSoldier !== null" [soldier]="selectedSoldier"> </soldier>
     `,
     directives: [SoldierComponent],
     providers: [SoldierService],
@@ -28,7 +28,7 @@ import {Soldier} from "./soldier";
 })
 export class SoliderListComponent implements OnInit{
     public changeColor = false;
-    public selectedSoldier = {};
+    public selectedSoldier = null;
     public soldiers: Soldier[];
 
     constructor(private _soldierService: SoldierService){}

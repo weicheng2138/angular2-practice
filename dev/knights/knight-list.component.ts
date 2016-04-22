@@ -19,7 +19,7 @@ import {Knight} from "./knight";
         </ul>
         
         
-        <knight [knight]="selectedKnight"> </knight>
+        <knight *ngIf="selectedKnight !== null" [knight]="selectedKnight"> </knight>
     `,
     directives: [KnightComponent],
     providers: [KnightService],
@@ -27,7 +27,7 @@ import {Knight} from "./knight";
 })
 export class KnightListComponent implements OnInit{
     public knights: Knight[];
-    public selectedKnight = {};
+    public selectedKnight = null;
     public changeColor = false;
 
 

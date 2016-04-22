@@ -5,3 +5,14 @@
 .clickedSoldier {
   color: red;
 }
+
+li {
+  width: 150px;
+  cursor: pointer;
+  transition: padding 0.5s;
+}
+
+li:hover {
+  padding-left: 10px;
+  color: #850440;
+}

@@ -1,4 +1,6 @@
 import {Component} from 'angular2/core';
+import {Router} from "angular2/router";
+import {Knight} from "./knight";
 
 @Component({
     selector: 'knight',
@@ -22,7 +24,9 @@ import {Component} from 'angular2/core';
         <div>
             <label for="health">Health: </label>
             <input [(ngModel)]="knight.health" type="text" id="health">
-        </div>`,
+        </div>
+        <button (click)="onCreateNew()">Create new Knight from this knight</button>
+        `,
     //relative to class KnightComponent's knight
     //data from knightList will flow in to it
     inputs: ["knight"],
@@ -41,6 +45,15 @@ import {Component} from 'angular2/core';
 
 })
 export class KnightComponent{
-    public knight = {};
+    public knight: Knight;
+
+    constructor(private _router: Router) {}
+
+    onCreateNew() {
+        this._router.navigate(['NewKnight', {name: this.knight.name}]);
+        // this._router.navigate(['NewKnight', {name: this.knight.name, armor: this.knight.armor}]);
+        // this._router.navigate(['NewKnight', this.knight]);
+
+    }
 
 }

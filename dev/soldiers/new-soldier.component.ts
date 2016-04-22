@@ -1,21 +1,26 @@
-import {Component} from "angular2/core";
+import {Component, OnInit} from "angular2/core";
 import {SoldierService} from "./soldier.service";
-import {Router} from "angular2/router";
+import {Router, RouteParams} from "angular2/router";
 import {Soldier} from "./soldier";
 
 @Component({
     template: `
-        <h2>Create a Soldier here...</h2>
-        <div>
-            <paper-input label="Name" type="text" id="name" #name> </paper-input>
-        </div>
-        <div>
-            <paper-input label="Power" type="number" id="power" #power> </paper-input>
-        </div>
-        <div>
-            <paper-input label="Health" type="number" id="health" #health> </paper-input>
-        </div>
-        <paper-button (click)="onAddSoldier(name.value, power.value, health.value)">Create Soldier</paper-button>
+        <form #myForm="ngForm" (ngSubmit)="onAddSoldier(name.value, power.value, health.value)">
+            <h2>Create a Soldier here...</h2>
+            <div>
+                <paper-input label="Name" type="text" id="name" #name value="{{passedName}}" required> </paper-input>
+            </div>
+            <div>
+                <paper-input label="Power" type="number" id="power" #power required> </paper-input>
+            </div>
+            <div>
+                <paper-input label="Health" type="number" id="health" #health required> </paper-input>
+            </div>
+            <!--<paper-button -->
+                <!--type="submit"-->
+            <!--&gt;Create Soldier</paper-button>-->
+            <button type="submit">Create Soldier</button>
+        </form>
     `,
     styles: [`
         paper-button {
@@ -32,8 +37,14 @@ import {Soldier} from "./soldier";
     providers: [SoldierService]
 
 })
-export class NewSoldierComponent {
-    constructor(private _soldierService: SoldierService, private _router: Router) {};
+export class NewSoldierComponent implements OnInit{
+    public passedName = "";
+
+    constructor(private _soldierService: SoldierService, private _router: Router, private _routeParams: RouteParams) {};
+
+    ngOnInit():any {
+        this.passedName = this._routeParams.get('name');
+    }
 
     onAddSoldier(name, power, health) {
         let soldier: Soldier = {name: name, power: power, health: health};
@@ -42,3 +53,5 @@ export class NewSoldierComponent {
     }
 
 }
+
+//                (click)="onAddSoldier(name.value, power.value, health.value)"
