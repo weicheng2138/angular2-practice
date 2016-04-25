@@ -16,3 +16,19 @@ li:hover {
   padding-left: 10px;
   color: #850440;
 }
+
+paper-listbox {
+  cursor: pointer;
+  background-color: #00acc1;
+}
+
+select {
+  //background: transparent;
+  width: 268px;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  border: 0;
+  border-radius: 0;
+  height: 34px;
+}
