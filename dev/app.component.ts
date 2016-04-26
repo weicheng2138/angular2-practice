@@ -4,6 +4,7 @@ import {SoliderListComponent} from "./soldiers/solider-list.component";
 import {ROUTER_DIRECTIVES, RouteConfig} from "angular2/router";
 import {NewKnightComponent} from "./knights/new-knight.component";
 import {NewSoldierComponent} from "./soldiers/new-soldier.component";
+import {HTTPTestComponent} from "./http-test.component";
 
 @Component({
     selector: 'my-app',
@@ -21,15 +22,18 @@ import {NewSoldierComponent} from "./soldiers/new-soldier.component";
         
         <!--router implementation-->
         <div class="main">
-            <router-outlet></router-outlet>
+            <http-test></http-test>
+            <router-outlet></router-outlet>  
         </div>
+        
+        <!--previous implementation-->
         <!--<knight-list></knight-list>-->
         <!--<soldier-list></soldier-list>-->
         
 
 
     `,
-    directives: [KnightListComponent, SoliderListComponent, ROUTER_DIRECTIVES],
+    directives: [KnightListComponent, SoliderListComponent, HTTPTestComponent, ROUTER_DIRECTIVES],
     styleUrls: ["../src/css/app.css"]
 })
 

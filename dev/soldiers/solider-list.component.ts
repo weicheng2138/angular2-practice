@@ -21,10 +21,6 @@ import {Soldier} from "./soldier";
                 <paper-item>Item 2</paper-item>
             </paper-listbox>
             
-            <!--<paper-menu selected="0">-->
-                <paper-item raised>Item 1</paper-item>
-                <paper-item>Item 2</paper-item>
-            <!--</paper-menu>-->
             
             
             

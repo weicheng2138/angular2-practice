@@ -13,7 +13,7 @@ import {ControlGroup, FormBuilder, Validators, Validator} from "angular2/common"
             </div>
             <div>
                 <paper-input label="Level" [ngFormControl]="myForm.controls['level']" ngDefaultControl
-                auto-validate pattern="[1-9]*" error-message="number only!"> </paper-input>
+                auto-validate pattern="[1-9]*" error-message="number only!" required> </paper-input>
             </div>
             <div>
                 <paper-input label="Armor" [ngFormControl]="myForm.controls['armor']" ngDefaultControl> </paper-input>
@@ -22,7 +22,8 @@ import {ControlGroup, FormBuilder, Validators, Validator} from "angular2/common"
                 <paper-input label="Sword" [ngFormControl]="myForm.controls['sword']" ngDefaultControl> </paper-input>
             </div>
             <div>
-                <paper-input label="Health" [ngFormControl]="myForm.controls['health']" ngDefaultControl> </paper-input>
+                <paper-input label="Health" [ngFormControl]="myForm.controls['health']" ngDefaultControl
+                auto-validate pattern="[1-9]*" error-message="number only!" required> </paper-input>
             </div>
             <paper-button>
                 <button type="submit">Create Knight</button>
