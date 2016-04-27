@@ -9,6 +9,7 @@ import {HTTPTestService} from "./http-test.service";
         <button (click)="onTestPost()">Test Post Request</button>
         <p>Output: {{postData}}</p>
         <button (click)="onTestPut()">Test Put Request</button>
+        <p>Put: {{putData}}</p>
         <button (click)="onTestDelete()">Test Delete Request</button>
         
     `,
@@ -17,6 +18,7 @@ import {HTTPTestService} from "./http-test.service";
 export class HTTPTestComponent {
     getData: string;
     postData: string;
+    putData: string;
 
     constructor(private _httpService: HTTPTestService) {}
 
@@ -30,7 +32,8 @@ export class HTTPTestComponent {
     }
 
     onTestPost() {
-        this._httpService.postEmployee()
+        let employee = { employeeId: "0027", firstName: "Selia", lastName: "Huag", cellphone: "0977383746" };
+        this._httpService.postEmployee(employee)
             .subscribe(
                 data => this.postData = JSON.stringify(data), //success part
                 error => alert(error), //error case
@@ -39,9 +42,10 @@ export class HTTPTestComponent {
     }
 
     onTestPut() {
-        this._httpService.updateEmployee()
+        let modifiedEmployee = { employeeId: "0027", firstName: "Selina", lastName: "Ken", cellphone: "0977483746" };
+        this._httpService.updateEmployee(modifiedEmployee)
             .subscribe(
-                data => this.postData = JSON.stringify(data), //success part
+                data => this.putData = JSON.stringify(data), //success part
                 error => alert(error), //error case
                 () => console.log("Finished") //pass a function when everything is completed
             );
