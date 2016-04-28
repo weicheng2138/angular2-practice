@@ -5,22 +5,23 @@ import {ROUTER_DIRECTIVES, RouteConfig} from "angular2/router";
 import {NewKnightComponent} from "./knights/new-knight.component";
 import {NewSoldierComponent} from "./soldiers/new-soldier.component";
 import {HTTPTestComponent} from "./http-test.component";
-import {resolve} from "url";
 import {PipeComponent} from "./pipe.component";
 import {ParentComponent} from "./input-output/parent.component";
+import {FakeAppComponent} from "./dependency-injection/fake-app.component";
 
 @Component({
     selector: 'my-app',
     template: `
         <header>
             <nav>
-                <a [routerLink]="['Parent']">Parent-child-dataPassing</a>
                 <a [routerLink]="['Knights']">Knights</a>
                 <a [routerLink]="['NewKnight']">New Knight</a>
                 <a [routerLink]="['Soldiers']">Soldiers</a>
                 <a [routerLink]="['NewSoldier']">NewSoldier</a>
                 <a [routerLink]="['Pipe']">Pipe</a>
                 <a [routerLink]="['HTTP-Test']">HTTP-Test</a>
+                <a [routerLink]="['Parent']">Parent-child-dataPassing</a>
+                <a [routerLink]="['Fake-App']">Fake-App</a>
             </nav>
         </header>
         <h1>Angular 2 Kingdom</h1>
@@ -33,8 +34,12 @@ import {ParentComponent} from "./input-output/parent.component";
             <router-outlet></router-outlet>
         </div>
         
-        <div>
+        <div class="parent">
             <parent></parent>
+        </div>
+        
+        <div>
+            <fake-app></fake-app>
         </div>
         
 
@@ -55,7 +60,9 @@ import {ParentComponent} from "./input-output/parent.component";
 
     {path: '/pipe', name: 'Pipe', component: PipeComponent},
     {path: '/http-test', name: 'HTTP-Test', component: HTTPTestComponent},
-    {path: '/parent', name: 'Parent', component: ParentComponent}
+    {path: '/parent', name: 'Parent', component: ParentComponent},
+    {path: '/fake-app', name: 'Fake-App', component: FakeAppComponent}
+
 
 
 ])
