@@ -1,7 +1,7 @@
 import {Component} from 'angular2/core';
 import {KnightListComponent} from "./knights/knight-list.component";
 import {SoliderListComponent} from "./soldiers/solider-list.component";
-import {ROUTER_DIRECTIVES, RouteConfig} from "angular2/router";
+import {ROUTER_DIRECTIVES, RouteConfig, Router} from "angular2/router";
 import {NewKnightComponent} from "./knights/new-knight.component";
 import {NewSoldierComponent} from "./soldiers/new-soldier.component";
 import {HTTPTestComponent} from "./http-test.component";
@@ -14,38 +14,44 @@ import {FakeAppComponent} from "./dependency-injection/fake-app.component";
     template: `
         <header>
             <nav>
-                <a [routerLink]="['Knights']">Knights</a>
-                <a [routerLink]="['NewKnight']">New Knight</a>
-                <a [routerLink]="['Soldiers']">Soldiers</a>
-                <a [routerLink]="['NewSoldier']">NewSoldier</a>
-                <a [routerLink]="['Pipe']">Pipe</a>
-                <a [routerLink]="['HTTP-Test']">HTTP-Test</a>
-                <a [routerLink]="['Parent']">Parent-child-dataPassing</a>
-                <a [routerLink]="['Fake-App']">Fake-App</a>
+                <!--<a [routerLink]="['Knights']">Knights</a>-->
+                <!--<a [routerLink]="['NewKnight']">New Knight</a>-->
+                <!--<a [routerLink]="['Soldiers']">Soldiers</a>-->
+                <!--<a [routerLink]="['NewSoldier']">NewSoldier</a>-->
+                <!--<a [routerLink]="['Pipe']">Pipe</a>-->
+                <!--<a [routerLink]="['HTTP-Test']">HTTP-Test</a>-->
+                <!--<a [routerLink]="['Parent']">Parent-child-dataPassing</a>-->
+                <!--<a [routerLink]="['Fake-App']">Fake-App</a>-->
+                <paper-tabs selected="0" align-bottom>
+                    <paper-tab (click)="onDirectToKnights()">Knights</paper-tab>
+                    <paper-tab (click)="onDirectToNewKnight()">New Knight</paper-tab>
+                    <paper-tab (click)="onDirectToSoldiers()">Soldiers</paper-tab>
+                    <paper-tab (click)="onDirectToNewSoldier()" >New Soldier</paper-tab>
+                    <paper-tab (click)="onDirectToPipe()">Pipe</paper-tab>
+                    <paper-tab (click)="onDirectToHttpTest()">Http-Test</paper-tab>
+                    <paper-tab (click)="onDirectToParent()">Parent</paper-tab>
+                    <paper-tab (click)="onDirectToFakeApp()">Fake-App</paper-tab>
+                </paper-tabs>
             </nav>
+            
         </header>
+        
+        
+        
         <h1>Angular 2 Kingdom</h1>
         
         
         <!--router implementation-->
         <div class="main">
-            <http-test></http-test>
-            <pipe></pipe>
             <router-outlet></router-outlet>
         </div>
         
-        <div class="parent">
-            <parent></parent>
-        </div>
         
-        <div>
-            <fake-app></fake-app>
-        </div>
         
 
 
     `,
-    directives: [KnightListComponent, SoliderListComponent, ROUTER_DIRECTIVES],
+    directives: [ROUTER_DIRECTIVES],
     styleUrls: ["../src/css/app.css"]
 })
 
@@ -67,7 +73,40 @@ import {FakeAppComponent} from "./dependency-injection/fake-app.component";
 
 ])
 export class AppComponent {
-    
+
+    constructor(private _router: Router) {}
+
+    onDirectToKnights() {
+        this._router.navigate(['Knights']);
+    }
+
+    onDirectToNewKnight() {
+        this._router.navigate(['NewKnight']);
+    }
+
+    onDirectToSoldiers() {
+        this._router.navigate(['Soldiers']);
+    }
+
+    onDirectToNewSoldier() {
+        this._router.navigate(['NewSoldier']);
+    }
+
+    onDirectToPipe() {
+        this._router.navigate(['Pipe']);
+    }
+
+    onDirectToHttpTest() {
+        this._router.navigate(['HTTP-Test']);
+    }
+
+    onDirectToParent() {
+        this._router.navigate(['Parent']);
+    }
+
+    onDirectToFakeApp() {
+        this._router.navigate(['Fake-App']);
+    }
 
     
 }

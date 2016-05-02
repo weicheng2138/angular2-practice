@@ -9,7 +9,7 @@ export class HTTPTestService {
     getEmployee() {
 
 
-        return this._http.get('http://localhost:8080/api/employees')
+        return this._http.get('http://localhost:8080/api/meal-order')
             .map(response => response.json()); //extract the resource
     }
 
@@ -37,16 +37,16 @@ export class HTTPTestService {
         // header.append('Content-Type', 'application/x-www-form-urlencoded');
         header.append('Content-Type', 'application/json');
 
-        return this._http.put("http://localhost:8080/api/employees/0027", json, {headers: header})
+        return this._http.put("http://localhost:8080/api/employees/" + object.employeeId, json, {headers: header})
             .map(response => response.json());
 
     }
 
-    deleteEmployee() {
+    deleteEmployee(employeeId) {
 
         var header = new Headers();
         header.append('Content-Type', 'application/json');
-        return this._http.delete('http://localhost:8080/api/employees/0027', {headers: header});
+        return this._http.delete('http://localhost:8080/api/employees/' + employeeId, {headers: header});
 
     }
 }

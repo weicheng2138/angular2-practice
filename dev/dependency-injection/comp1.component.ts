@@ -23,6 +23,6 @@ export class Comp1Component{
         this.data = this._dataService.getRandomData();
     }
     onAddItem(data: string) {
-        this._dataService.inserData(data);
+        this._dataService.insertData(data);
     }
 }

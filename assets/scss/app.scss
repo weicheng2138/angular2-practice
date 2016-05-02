@@ -12,10 +12,13 @@ h1,
 header nav{
   width: 75%;
   margin: 32px auto;
+
 }
 header nav a {
-  color: #0000AA;
-  font-weight: bold;
+  color: lightgrey;
+  //font-weight: bold;
+  text-decoration: none;
+  font-size: 24px;
 }
 
 header nav a:hover,
@@ -49,5 +52,15 @@ paper-input {
   background-color: lightgrey;
   border: darkgray;
 
+}
+
+paper-tabs {
+  font-size: 12px;
+  background-color: gray;
+}
+
+paper-tab:hover {
+  //background-color: lightgrey;
+  color: lightgrey;
 }
 

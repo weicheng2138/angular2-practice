@@ -10,15 +10,18 @@ import {Soldier} from "./soldier";
             [class.clicked] ="changeColor === true"
         >List of Soldier</h2>
         
-            <!--<paper-dropdown-menu label="Dinosaurs">-->
-               <!--<paper-listbox>-->
-                    <!--<paper-item>Item 1</paper-item>-->
-                    <!--<paper-item>Item 2</paper-item>-->
-                <!--</paper-listbox>-->
-            <!--</paper-dropdown-menu>-->
+            <paper-dropdown-menu label="Dinosaurs">
+               <paper-listbox selected="0">
+                    <paper-item>Item 1</paper-item>
+                    <paper-item>Item 2</paper-item>
+                    <paper-item>Item 3</paper-item>
+                </paper-listbox>
+            </paper-dropdown-menu>
+            
             <paper-listbox selected="0">
-                <paper-item>Item 1</paper-item>
-                <paper-item>Item 2</paper-item>
+                    <paper-item>Item 1</paper-item>
+                    <paper-item>Item 2</paper-item>
+                    <paper-item>Item 3</paper-item>
             </paper-listbox>
             
             

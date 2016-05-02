@@ -8,7 +8,7 @@ export class DataService {
         return this._data[Math.floor(Math.random()*this._data.length)];
     }
 
-    inserData(data: string) {
+    insertData(data: string) {
         this._data.push(data);
     }
     
